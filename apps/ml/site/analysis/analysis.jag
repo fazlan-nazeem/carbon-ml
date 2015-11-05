@@ -130,7 +130,7 @@
 
                     <!--download model popup -->
                       <div class="popup-content" data-operation="download-model">
-                        <div class="content">Please selecte download type</div>
+                        <div class="content">Please select download type</div>
                         <div class="buttons">
                             <a href="#" id="download-model-serialized" class="btn-opr-default" >Serialized</a>
                             <a href="#" id="download-model-pmml"  class="btn-opr-default">PMML</a>
@@ -138,7 +138,7 @@
                     </div>
                     <!-- /download model popup -->
                     
-                    <!--download model popup -->
+            
                       <div class="popup-content" data-operation="pmml-error">
                         <div class="content">PMML download not supported for this model type</div>
                         <div class="buttons">
