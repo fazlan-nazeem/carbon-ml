@@ -47,7 +47,9 @@ public class LoginLogoutApiV10 extends MLRestAPI {
      */
     @OPTIONS
     public Response options() {
-        return Response.ok().header(HttpHeaders.ALLOW, "POST").build();
+
+        return Response.ok().header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Headers","*").header("Access-Control-Allow-Credentials","true")
+                .header("Access-Control-Allow-Methods","POST").build();
     }
 
     /**

@@ -25,6 +25,15 @@
 	<display-name>WSO2 ML REST API</display-name>
 	<description>WSO2 ML REST API</description>
 
+	<filter>
+		<filter-name>CorsFilter</filter-name>
+		<filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CorsFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>WEB-INF/beans.xml</param-value>
@@ -41,6 +50,7 @@
 		</listener-class>
 	</listener>
 
+
 	<servlet>
 		<servlet-name>MLRestApi</servlet-name>
 		<servlet-class>
@@ -53,4 +63,7 @@
 		<servlet-name>MLRestApi</servlet-name>
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
+
+
+
 </web-app>

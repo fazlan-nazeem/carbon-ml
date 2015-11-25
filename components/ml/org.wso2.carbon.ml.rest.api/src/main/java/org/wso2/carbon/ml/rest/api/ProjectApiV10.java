@@ -57,9 +57,13 @@ public class ProjectApiV10 extends MLRestAPI {
         mlProjectHandler = new MLProjectHandler();
     }
 
+
     @OPTIONS
     public Response options() {
-        return Response.ok().header(HttpHeaders.ALLOW, "GET POST DELETE").build();
+        return Response.ok().header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Headers", "*")
+                .header("Access-Control-Allow-Credentials", "true")
+                .header("Access-Control-Allow-Methods", "GET, POST, DELETE")
+                .header(HttpHeaders.ALLOW, "GET POST DELETE").build();
     }
 
     /**

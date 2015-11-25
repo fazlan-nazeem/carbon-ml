@@ -26,6 +26,7 @@ import javax.ws.rs.core.StreamingOutput;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.cxf.jaxrs.cors.CorsHeaderConstants;
 import org.apache.cxf.jaxrs.ext.multipart.Multipart;
 import org.apache.hadoop.fs.InvalidRequestException;
 import org.apache.http.HttpHeaders;
@@ -61,7 +62,10 @@ public class ModelApiV11 extends MLRestAPI {
 
     @OPTIONS
     public Response options() {
-        return Response.ok().header(HttpHeaders.ALLOW, "GET POST DELETE").build();
+        return Response.ok().header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Headers", "*")
+                .header("Access-Control-Allow-Credentials", "true")
+                .header("Access-Control-Allow-Methods", "GET, POST, DELETE")
+                .header(HttpHeaders.ALLOW, "GET POST DELETE").build();
     }
 
     /**

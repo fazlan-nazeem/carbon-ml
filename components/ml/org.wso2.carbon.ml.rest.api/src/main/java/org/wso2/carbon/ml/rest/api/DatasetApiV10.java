@@ -25,6 +25,8 @@ import javax.ws.rs.core.Response;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.cxf.jaxrs.cors.CorsHeaderConstants;
+import org.apache.cxf.jaxrs.cors.CrossOriginResourceSharing;
 import org.apache.cxf.jaxrs.ext.multipart.Multipart;
 import org.apache.http.HttpHeaders;
 import org.wso2.carbon.context.PrivilegedCarbonContext;
@@ -64,9 +66,11 @@ public class DatasetApiV10 extends MLRestAPI {
 
     @OPTIONS
     public Response options() {
-        return Response.ok().header(HttpHeaders.ALLOW, "GET POST DELETE").build();
+        return Response.ok().header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Headers", "*")
+                .header("Access-Control-Allow-Credentials", "true")
+                .header("Access-Control-Allow-Methods", "GET, POST, DELETE")
+                .header(HttpHeaders.ALLOW, "GET POST DELETE").build();
     }
-
     /**
      * Upload a new dataset.
      *
